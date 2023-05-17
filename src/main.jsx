@@ -7,10 +7,22 @@ import {
 } from "react-router-dom";
 import Home from './Component/Home.jsx';
 import AuthProvider from './Component/AuthProvider.jsx';
+import Login from './Component/Login';
+import Register from './Component/Register';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
+    children:[
+      {
+        path:'login',
+        element:<Login></Login>
+      },
+      {
+        path:"register",
+        element:<Register></Register>
+      }
+    ]
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
