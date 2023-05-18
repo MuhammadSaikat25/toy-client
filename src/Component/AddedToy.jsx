@@ -47,7 +47,7 @@ const AddedToy = () => {
                     <input className="border rounded w-full" type="text" name="manufacture" placeholder="Manufacture" required/><br /><br />
                     <input className="border rounded w-full" type="text" name="category" placeholder="Category" required/><br /><br />
                     <input className="border rounded w-full" type="text" name="url" placeholder="url" required/><br /><br />
-                    <input className="border rounded w-full" type="text" name="age" placeholder="Age" required/><br /><br />
+                    <input className="border rounded w-full" type="text" name="age" placeholder="Sub-category by age" required/><br /><br />
                     <input className="border rounded w-full" type="text" name="rating" placeholder="Rating" required/><br /><br />
                     <input className="border rounded w-full" type="text" name="details" placeholder="Description" required/><br /><br />
                     <button className="bg-orange-400 p-1 rounded-sm text-white font-bold w-full">Add your toy</button>

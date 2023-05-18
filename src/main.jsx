@@ -13,6 +13,7 @@ import HomeView from './Component/HomeView';
 import AddedToy from './Component/AddedToy';
 import PrivetRout from './Component/PrivetRout';
 import MyToy from './Component/MyToy';
+import AllToy from './Component/AllToy';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path:'myAdd',
         element:<MyToy></MyToy>
+      },
+      {
+        path:"allToy",
+        element:<AllToy></AllToy>
       }
     ]
   },
