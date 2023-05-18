@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
 
 const Login = () => {
@@ -10,7 +10,7 @@ const Login = () => {
         const password=e.target.password.value 
         logIn(email,password)
             .then(res=>{
-                console.log(res.user)
+               <Navigate to='/'></Navigate>
             })
             .catch(error=>{
                 console.log(error)

@@ -12,6 +12,7 @@ import Register from './Component/Register';
 import HomeView from './Component/HomeView';
 import AddedToy from './Component/AddedToy';
 import PrivetRout from './Component/PrivetRout';
+import MyToy from './Component/MyToy';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path:'addToy',
         element:<PrivetRout><AddedToy></AddedToy></PrivetRout>
+      },
+      {
+        path:'myAdd',
+        element:<MyToy></MyToy>
       }
     ]
   },

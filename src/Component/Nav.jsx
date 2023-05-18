@@ -51,11 +51,15 @@ const Nav = () => {
                                 <NavLink className={({ isActive }) => isActive ? "text-lime-500" : ''} to='/login'>login</NavLink>
                                 <NavLink className={({ isActive }) => isActive ? "text-lime-500" : ''} to='/register'>Register</NavLink>
                                 {
+                                    user?<NavLink to='/myAdd'>My-Toy</NavLink>:''
+                                }
+                                {
                                     user ? <div className='inline-flex items-center'>
                                         <img title={user.displayName} className='rounded-3xl w-[40px]' src={user.photoURL} alt="" />
                                         <button onClick={handleOut}>Log out</button>
                                     </div> : ''
                                 }
+                                
 
                             </li>
                             {/* <li><a>Item 3</a></li> */}

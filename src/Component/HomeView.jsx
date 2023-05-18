@@ -13,6 +13,11 @@ import gallery5 from '../assets/math.jpg'
 import gallery6 from '../assets/Header-1.jpg'
 
 const HomeView = () => {
+    const handel3t04=(ageRange)=>{
+        fetch(`http://localhost:5000/getToy/${ageRange}`)
+            .then(res=>res.json())
+            .then(data=>console.log(data))
+    }
     return (
         <div className=''>
 
@@ -48,19 +53,19 @@ const HomeView = () => {
             <div className="text-center mt-20 font-bold">
                 <Tabs>
                     <TabList>
-                        <Tab>3-4 years children</Tab>
+                        <Tab onClick={()=>handel3t04(4)}>3-4 years children</Tab>
                         <Tab>5-7 years children</Tab>
                         <Tab>7-10+ years children</Tab>
                     </TabList>
 
-                    <TabPanel>
-                       
+                    <TabPanel >
+                       <h1>3-4</h1>
                     </TabPanel>
                     <TabPanel>
                         <h2>Any content 2</h2>
                     </TabPanel>
                     <TabPanel>
-                        
+                        <h1>7-10</h1>
                     </TabPanel>
                 </Tabs>
             </div>
