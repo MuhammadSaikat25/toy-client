@@ -3,6 +3,8 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/Logo.png'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import header1 from '../assets/header-1.webp'
+import header3 from '../assets/Header-3.webp'
 
 const Nav = () => {
     return (
@@ -41,6 +43,7 @@ const Nav = () => {
                     </div>
                 </div>
             </div>
+            
         </div>
     );
 };
