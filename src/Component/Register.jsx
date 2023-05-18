@@ -5,7 +5,7 @@ import { AuthContext } from './AuthProvider';
 
 const Register = () => {
 
-    const { createUser } = useContext(AuthContext)
+    const { createUser ,upDateUser} = useContext(AuthContext)
     const [error, setERror] = useState('')
 
     const handelReg = e => {
@@ -24,6 +24,9 @@ const Register = () => {
         createUser(email, password)
             .then(res => {
                alert('Register successful')
+               upDateUser(name,url)
+                .then(res=>{})
+                .catch(res=>{})
             })
             .catch(error => {
                 
