@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/Logo.png'
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+// import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import header1 from '../assets/header-1.webp'
-import header3 from '../assets/Header-3.webp'
+import { AuthContext } from './AuthProvider';
+// import header1 from '../assets/header-1.webp'
+// import header3 from '../assets/Header-3.webp'
 
 const Nav = () => {
+    const { user } = useContext(AuthContext)
     return (
         <div>
             <div className="navbar bg-base-100 font-semibold -mt-7">
@@ -17,6 +19,9 @@ const Nav = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <NavLink to='/'>Home</NavLink>
+                            {
+                                user ? <NavLink className={({ isActive }) => isActive ? "text-lime-500" : ''} to='/addToy'>ADD TOY</NavLink> : ""
+                            }
                             <NavLink to='/login'>login</NavLink>
                             <NavLink to='/register'>Register</NavLink>
                         </ul>
@@ -28,6 +33,9 @@ const Nav = () => {
                         <div className="">
                             <NavLink className={({ isActive }) => isActive ? "text-lime-500" : ''} to='/'>Home</NavLink>
                         </div>
+                        {
+                            user ? <NavLink className={({ isActive }) => isActive ? "text-lime-500" : ''} to='/addToy'>ADD-TOY</NavLink> : ''
+                        }
                         <div className="">
                             <NavLink className={({ isActive }) => isActive ? "text-lime-500" : ''} to='/login'>login</NavLink>
                         </div>
@@ -43,7 +51,7 @@ const Nav = () => {
                     </div>
                 </div>
             </div>
-            
+
         </div>
     );
 };

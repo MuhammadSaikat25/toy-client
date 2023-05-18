@@ -8,7 +8,7 @@ export default {
     themes: ["autumn"],
   },
   daisyui: {
-    themes: ["autumn"],
+    themes: ["lofi"],
   },
   plugins: [require("daisyui")],
 }
