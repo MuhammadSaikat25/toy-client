@@ -14,6 +14,7 @@ const Register = () => {
         const email = e.target.email.value
         const password = e.target.password.value
         const conPass = e.target.conPass.value
+        const url = e.target.url.value
         if (password !== conPass) {
             return alert('wong')
         }
@@ -41,6 +42,8 @@ const Register = () => {
                     <input className='w-full' type="password" name="password" placeholder='Password' />
                     <br /> <br />
                     <input className='w-full' type="password" name="conPass" placeholder='Conform Password' />
+                    <br /> <br />
+                    <input className='w-full' type="text" name="url" placeholder='Photo Url' />
                     <br /> <br />
                     <button className='bg-green-400 p-2 rounded w-1/2 text-white font-bold' type='submit'>Register</button>
                     <div className="">
