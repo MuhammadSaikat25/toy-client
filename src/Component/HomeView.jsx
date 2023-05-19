@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/Logo.png'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -13,11 +13,13 @@ import gallery5 from '../assets/math.jpg'
 import gallery6 from '../assets/Header-1.jpg'
 
 const HomeView = () => {
+    const [category, setCategory] = useState([])
     const handel3t04 = (ageRange) => {
         fetch(`http://localhost:5000/getToy/${ageRange}`)
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => setCategory(data))
     }
+
     return (
         <div className=''>
 
@@ -54,36 +56,63 @@ const HomeView = () => {
                 <Tabs>
                     <TabList>
                         <Tab onClick={() => handel3t04(4)}>3-4 years children</Tab>
-                        <Tab>5-7 years children</Tab>
-                        <Tab>7-10+ years children</Tab>
+                        <Tab onClick={() => handel3t04(7)}>5-7 years children</Tab>
+                        <Tab onClick={() => handel3t04(9)}>8-10+ years children</Tab>
+
                     </TabList>
 
                     <TabPanel >
-                        <h1>3-4</h1>
+                        {
+                            category.map(toy => <div className='border w-[300px] mx-auto mb-3 '>
+                                <img className='w-[300px]' src={toy.url} alt="" />
+                                <p className='text-gray-500'>{toy.toyName}</p>
+                                <p>${toy.price}</p>
+                                <p className='text-yellow-500'>rating:{toy.rating}</p>
+                                <button className='w-full bg-slate-700 text-white p-2 '>View Details</button>
+                            </div>)
+                        }
                     </TabPanel>
                     <TabPanel>
-                        <h2>Any content 2</h2>
+                        {
+                            category.map(toy => <div className='border w-[300px] mx-auto mb-3 '>
+                                <img className='w-[300px]' src={toy.url} alt="" />
+                                <p className='text-gray-500'>{toy.toyName}</p>
+                                <p>${toy.price}</p>
+                                <p className='text-yellow-500'>rating:{toy.rating}</p>
+                                <button className='w-full bg-slate-700 text-white p-2 '>View Details</button>
+                            </div>)
+                        }
+                       
                     </TabPanel>
                     <TabPanel>
-                        <h1>7-10</h1>
+                        {
+                            category.map(toy => <div className='border w-[300px] mx-auto mb-3 '>
+                                <img className='w-[300px]' src={toy.url} alt="" />
+                                <p className='text-gray-500'>{toy.toyName}</p>
+                                <p>${toy.price}</p>
+                                <p className='text-yellow-500'>rating:{toy.rating}</p>
+                                <button className='w-full bg-slate-700 text-white p-2 '>View Details</button>
+                            </div>)
+                        }
+                       
                     </TabPanel>
                 </Tabs>
             </div>
             {/* ======================== Top selling Section================= */}
-            <h1 className='text-center mt-20 mb-10 text-gray-400 font-bold text-3xl'>Top selling Toys in this week</h1>
-            <div className="grid gap-5 lg:grid-cols-3 ml-3">
-                <div className="border w-[350px] p-5">
-                    <img className='w-[300px] rounded-md h-[300px]' src={gallery5} alt="" />
+            <h1 className='text-center mt-20 mb-10 text-gray-400 font-bold text-2xl'>Top selling Toys in this week</h1>
+            <div className="grid gap-5 lg:grid-cols-3 ">
+                <div className="border w-[350px] rounded-md shadow-2xl">
+                    <img className=' rounded-md ' src={gallery5} alt="" />
                     <p className='text-xl font-bold text-gray-400 text-center mt-3'>price: $23</p>
                     <button className='bg-orange-400 text-white font-bold mt-3 w-full rounded'>ADD TO CART</button>
                 </div>
-                <div className="border w-[350px] p-5">
-                    <img className='w-[300px] rounded-md h-[300px]' src={gallery2} alt="" />
+                <div className="border w-[350px] rounded-md shadow-2xl">
+                    <img className=' rounded-md ' src={gallery2} alt="" />
                     <p className='text-xl font-bold text-gray-400 text-center mt-3'>price: $27</p>
                     <button className='bg-orange-400 text-white font-bold mt-3 w-full rounded'>ADD TO CART</button>
                 </div>
-                <div className="border w-[350px] p-5">
-                    <img className='w-[300px] rounded-md h-[300px]' src={gallery3} alt="" />
+                <div className="border w-[350px] shadow-2xl">
+                    <img className=' rounded-md ' src={gallery3} alt="" />
                     <p className='text-xl font-bold text-gray-400 text-center mt-3'>price: $43</p>
                     <button className='bg-orange-400 text-white font-bold mt-3 w-full rounded'>ADD TO CART</button>
                 </div>
@@ -95,6 +124,7 @@ const HomeView = () => {
                 <input className='border w-[400px]' type="email" name="email" placeholder='Enter your Email*' /><br />
                 <button className='text-center bg-green-400 font-bold text-white  p-2 rounded'>SUBSCRIBE</button>
             </div>
+
         </div>
     );
 };
