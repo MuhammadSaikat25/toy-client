@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import AllToyGrid from './AllToyGrid';
 
 const AllToy = () => {
     const [allToy, setAllToy] = useState([])
@@ -10,28 +11,12 @@ const AllToy = () => {
     return (
         <div>
 
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Price</th>
-                    <th>Available quantity</th>
-                    <th>Detail description</th>
-                    <th>Delete</th>
-                    <th>Update</th>
-                </tr>
-            </thead>
+
+           <div className="grid lg:grid-cols-3 gap-10">
             {
-                allToy.slice(0, 20).map(toy => <tbody key={toy._id}>
-                    <tr>
-                        <th>1</th>
-                        <td>${toy.price}</td>
-                        <td>{toy.Available}</td>
-                        <td>{toy.details}</td>
-                        <td><button>Delete</button></td>
-                        <td><button>Update</button></td>
-                    </tr>
-                </tbody>)
+                allToy.map(toy=><AllToyGrid toy={toy} key={toy._id}></AllToyGrid>)
             }
+           </div>
         </div>
     );
 };

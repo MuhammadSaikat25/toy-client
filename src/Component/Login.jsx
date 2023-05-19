@@ -13,7 +13,7 @@ const Login = () => {
                <Navigate to='/'></Navigate>
             })
             .catch(error=>{
-                console.log(error)
+                // console.log(error)
             })
     }
     return (

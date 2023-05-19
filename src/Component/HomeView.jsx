@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/Logo.png'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -11,15 +11,21 @@ import gallery3 from '../assets/Math-Game.webp'
 import gallery4 from '../assets/set-math.jpg'
 import gallery5 from '../assets/math.jpg'
 import gallery6 from '../assets/Header-1.jpg'
+import { AuthContext } from './AuthProvider';
 
 const HomeView = () => {
+    const {user}=useContext(AuthContext)
     const [category, setCategory] = useState([])
     const handel3t04 = (ageRange) => {
         fetch(`http://localhost:5000/getToy/${ageRange}`)
             .then(res => res.json())
             .then(data => setCategory(data))
     }
-
+    const handelDetails=()=>{
+        if(!user){
+            return alert('You have to log in first to view details')
+        }
+    }
     return (
         <div className=''>
 
@@ -68,7 +74,7 @@ const HomeView = () => {
                                 <p className='text-gray-500'>{toy.toyName}</p>
                                 <p>${toy.price}</p>
                                 <p className='text-yellow-500'>rating:{toy.rating}</p>
-                                <button className='w-full bg-slate-700 text-white p-2 '>View Details</button>
+                                <Link to={`/subDetails/${toy._id}`}><button onClick={handelDetails} className='w-full bg-slate-700 text-white p-2 '>View Details</button></Link>
                             </div>)
                         }
                     </TabPanel>
@@ -79,10 +85,10 @@ const HomeView = () => {
                                 <p className='text-gray-500'>{toy.toyName}</p>
                                 <p>${toy.price}</p>
                                 <p className='text-yellow-500'>rating:{toy.rating}</p>
-                                <button className='w-full bg-slate-700 text-white p-2 '>View Details</button>
+                                <Link to={`/subDetails/${toy._id}`}> <button onClick={handelDetails} className='w-full bg-slate-700 text-white p-2 '>View Details</button></Link>
                             </div>)
                         }
-                       
+
                     </TabPanel>
                     <TabPanel>
                         {
@@ -91,10 +97,10 @@ const HomeView = () => {
                                 <p className='text-gray-500'>{toy.toyName}</p>
                                 <p>${toy.price}</p>
                                 <p className='text-yellow-500'>rating:{toy.rating}</p>
-                                <button className='w-full bg-slate-700 text-white p-2 '>View Details</button>
+                                <Link to={`/subDetails/${toy._id}`}> <button onClick={handelDetails} className='w-full bg-slate-700 text-white p-2 '>View Details</button></Link>
                             </div>)
                         }
-                       
+
                     </TabPanel>
                 </Tabs>
             </div>

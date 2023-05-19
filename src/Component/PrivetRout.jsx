@@ -11,12 +11,8 @@ const PrivetRout = ({children}) => {
     if(user){
      return   children
     }
-    <Navigate to='/login'></Navigate>
-    return (
-        <div>
-            
-        </div>
-    );
+    // <Navigate to='/login'></Navigate>
+    return <Navigate to='/login'></Navigate>
 };
 
 export default PrivetRout;
