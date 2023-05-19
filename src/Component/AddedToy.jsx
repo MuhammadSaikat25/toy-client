@@ -18,7 +18,7 @@ const AddedToy = () => {
        const details=e.target.details.value 
        const rating=e.target.rating.value 
        const create={name,toyName,price,Available,Category,email,Manufacture,url,age,rating,details}
-    //    console.log(name,toyName,price,Available,Category)
+    
        fetch('http://localhost:5000/addToy',{
         method:"POST",
         headers:{

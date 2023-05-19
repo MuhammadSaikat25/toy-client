@@ -6,11 +6,13 @@ import app from '../firebase';
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState('')
+    const [loader,setLoader]=useState(true)
     const auth = getAuth(app)
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const logIn = (email, password) => {
+        setLoader(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     const upDateUser = (name,url) => {
@@ -23,6 +25,7 @@ const AuthProvider = ({ children }) => {
 
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
+            setLoader(false)
         })
         return () => {
             unsubscribe()
@@ -35,7 +38,7 @@ const AuthProvider = ({ children }) => {
     
     }
     const authInfo = {
-        createUser, logIn, user, upDateUser,logOut
+        createUser, logIn, user, upDateUser,logOut,loader
     }
     return (
         <div>

@@ -4,7 +4,10 @@ import { AuthContext } from './AuthProvider';
 import { Navigate } from 'react-router-dom';
 
 const PrivetRout = ({children}) => {
-    const {user}=useContext(AuthContext)
+    const {user,loader}=useContext(AuthContext)
+    if(loader){
+        return <div className='text-center'><button className="btn loading text-center ">loading</button></div>
+    }
     if(user){
      return   children
     }
