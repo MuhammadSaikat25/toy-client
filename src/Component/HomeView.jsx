@@ -88,6 +88,13 @@ const HomeView = () => {
                     <button className='bg-orange-400 text-white font-bold mt-3 w-full rounded'>ADD TO CART</button>
                 </div>
             </div>
+            {/* ============================================================== */}
+            <div className="text-center mt-10 space-y-4 bg-blue-300 p-3">
+                <h1 className='font-bold text-white'>Sign up for our newsletter</h1>
+                <p className='font-bold text-white'>Sign up today for our newsletter and receive <span className='text-red-600'>15% OFF</span> your first purchase, and also get our sneak peeks, tips, and exclusive offers.</p>
+                <input className='border w-[400px]' type="email" name="email" placeholder='Enter your Email*' /><br />
+                <button className='text-center bg-green-400 font-bold text-white  p-2 rounded'>SUBSCRIBE</button>
+            </div>
         </div>
     );
 };
