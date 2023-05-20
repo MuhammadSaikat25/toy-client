@@ -12,16 +12,16 @@ const Update = () => {
         const quantity = e.target.quantity.value
         const detail = e.target.detail.value
         const newUpdate = { price, quantity, detail }
-        // console.log(price, quantity, detail)
+       
 
         Swal.fire({
             title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            text: "Are you sure you will update?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Yes, update it!'
         }).then((result) => {
             if (result.isConfirmed) {
                 fetch(`http://localhost:5000/update/${data._id}`, {

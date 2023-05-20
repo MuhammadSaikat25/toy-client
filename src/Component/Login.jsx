@@ -1,19 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
 
 const Login = () => {
     const {logIn}=useContext(AuthContext)
+    const [error,setError]=useState('')
+    console.log(error)
     const handelLog = e => {
         e.preventDefault()
         const email=e.target.email.value 
         const password=e.target.password.value 
         logIn(email,password)
             .then(res=>{
+                // setError('')
                <Navigate to='/'></Navigate>
+              
             })
             .catch(error=>{
-                // console.log(error)
+            //    setError(error.message)
             })
     }
     return (
@@ -29,6 +33,7 @@ const Login = () => {
                 <h1 className='w-1/2 font-bold text-white'>New at Toy-hub ? <span className='underline'><Link to='/register'>Register</Link></span></h1>
             </div>
             </form>
+            <h1>{error}</h1>
         </div>
     );
 };

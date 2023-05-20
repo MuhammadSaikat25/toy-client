@@ -16,6 +16,7 @@ import MyToy from './Component/MyToy';
 import AllToy from './Component/AllToy';
 import SubView from './Component/SubView';
 import Update from './Component/Update';
+import ErrorPage from './Component/ErrorPage';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
         path:'update/:id',
         element:<Update></Update>,
         loader:({params})=>fetch(`http://localhost:5000/getById/${params.id}`)
+      },
+      {
+        path:'*',
+        element:<ErrorPage></ErrorPage>
       }
     ]
   },

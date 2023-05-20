@@ -15,7 +15,7 @@ const MyToy = () => {
     const handelDelete = (id) => {
         Swal.fire({
             title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            text: "Are you sure you will delete?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -28,7 +28,7 @@ const MyToy = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        if (data.deletedCount>0) {
+                        if (data.deletedCount > 0) {
                             const remaining = myToy.filter(toy => toy._id !== id)
                             setMyToy(remaining)
                         }

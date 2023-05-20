@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AllToyGrid = ({ toy }) => {
-    // console.log(toy.toyName)
+    
     return (
         <div className="">
             <div className=' border space-y-3 text-center rounded hover:bg-orange-300 mb-10 font-bold'>
@@ -10,10 +11,7 @@ const AllToyGrid = ({ toy }) => {
                 <p>Name:{toy.toyName}</p>
                 <p>Available Quantity:{toy.Available}</p>
                 <p>Description:{toy.details}</p>
-                <div className="inline-flex justify-between w-full">
-                    <p className='text-white bg-purple-800  font-bold p-2 rounded'><button>Delete</button></p>
-                    <p className='bg-green-600 font-bold p-2 rounded text-white'><button>Update</button></p>
-                </div>
+                <Link to={`/subDetails/${toy._id}`}><button className='bg-sky-700 w-full rounded text-white font-bold'>viewDetail</button></Link>
             </div>
         </div>
     );
