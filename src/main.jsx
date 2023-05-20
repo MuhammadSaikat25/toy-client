@@ -15,6 +15,7 @@ import PrivetRout from './Component/PrivetRout';
 import MyToy from './Component/MyToy';
 import AllToy from './Component/AllToy';
 import SubView from './Component/SubView';
+import Update from './Component/Update';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,8 +46,13 @@ const router = createBrowserRouter([
         element:<AllToy></AllToy>
       },
       {
-        path:'/subDetails/:id',
+        path:'subDetails/:id',
         element:<PrivetRout><SubView></SubView></PrivetRout>,
+        loader:({params})=>fetch(`http://localhost:5000/getById/${params.id}`)
+      },
+      {
+        path:'update/:id',
+        element:<Update></Update>,
         loader:({params})=>fetch(`http://localhost:5000/getById/${params.id}`)
       }
     ]
