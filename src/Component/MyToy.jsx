@@ -28,7 +28,7 @@ const MyToy = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        if (data.deletedCount === 1) {
+                        if (data.deletedCount>0) {
                             const remaining = myToy.filter(toy => toy._id !== id)
                             setMyToy(remaining)
                         }
