@@ -17,6 +17,7 @@ import AllToy from './Component/AllToy';
 import SubView from './Component/SubView';
 import Update from './Component/Update';
 import ErrorPage from './Component/ErrorPage';
+import Blog from './Component/Blog';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -49,16 +50,20 @@ const router = createBrowserRouter([
       {
         path:'subDetails/:id',
         element:<PrivetRout><SubView></SubView></PrivetRout>,
-        loader:({params})=>fetch(`http://localhost:5000/getById/${params.id}`)
+        loader:({params})=>fetch(`https://toy-hub-brown.vercel.app/${params.id}`)
       },
       {
         path:'update/:id',
         element:<Update></Update>,
-        loader:({params})=>fetch(`http://localhost:5000/getById/${params.id}`)
+        loader:({params})=>fetch(`https://toy-hub-brown.vercel.app/getById/${params.id}`)
       },
       {
         path:'*',
         element:<ErrorPage></ErrorPage>
+      },
+      {
+        path:'blog',
+        element:<Blog></Blog>
       }
     ]
   },

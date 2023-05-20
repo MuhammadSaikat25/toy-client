@@ -19,7 +19,7 @@ const AddedToy = () => {
        const rating=e.target.rating.value 
        const create={name,toyName,price,Available,Category,email,Manufacture,url,age,rating,details}
     
-       fetch('http://localhost:5000/addToy',{
+       fetch('https://toy-hub-brown.vercel.app/addToy',{
         method:"POST",
         headers:{
             'content-type':'application/json'

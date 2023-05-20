@@ -24,7 +24,7 @@ const Update = () => {
             confirmButtonText: 'Yes, update it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/update/${data._id}`, {
+                fetch(`https://toy-hub-brown.vercel.app/update/${data._id}`, {
                     method: "PUT",
                     headers: {
                         'content-type': 'application/json'
@@ -41,7 +41,9 @@ const Update = () => {
         })
     }
     return (
+        
         <div>
+           
             <form className='text-center w-1/2 mx-auto bg-purple-300 p-4 rounded' onSubmit={handelUp}>
                 <input className='border w-full' type="text" name="price" defaultValue={data.price} placeholder='Price' /><br /> <br />
                 <input className='border w-full' type="text" name="quantity" defaultValue={data.Available} placeholder='Available quantity' /><br /><br />
