@@ -28,12 +28,12 @@ const Login = () => {
             .catch(error=>{})
     }
     return (
-        <div className='w-[500px] mx-auto text-center mt-20  bg-blue-400 p-10 rounded-md'>
+        <div className='w-full lg:w-[500px] mx-auto text-center mt-20  bg-blue-400 p-10 rounded-md'>
            
             <form  onSubmit={handelLog}>
-                <input className='w-full' type="email" name="email" placeholder='Email' />
+                <input className='w-full' type="email" name="email" placeholder='Email'required />
                 <br /> <br />
-                <input className='w-full' type="password" name="password" placeholder='Password' />
+                <input className='w-full' type="password" name="password" placeholder='Password' required/>
                 <br /> <br />
                 <button className='bg-green-400 p-2 rounded w-[150px] text-white font-bold' type='submit'>Log in</button><br /><br />
                 <button className='bg-blue-600 p-1 rounded text-white font-semibold' onClick={Google}>login with Google</button>

@@ -7,6 +7,7 @@ const AllToyGrid = ({ toy }) => {
         <div className="">
             <div className=' border space-y-3 text-center rounded hover:bg-orange-300 mb-10 font-bold'>
                 <img className='w-[300px] h-[300px] mx-auto' src={toy.url} alt="" />
+                <p>seller Name: {toy.name}</p>
                 <p>price: ${toy.price}</p>
                 <p>Name:{toy.toyName}</p>
                 <p>Available Quantity:{toy.Available}</p>

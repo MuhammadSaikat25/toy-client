@@ -15,6 +15,7 @@ const Register = () => {
         const email = e.target.email.value
         const password = e.target.password.value
         const url = e.target.url.value
+        console.log(url)
        
         if(!password.length>6){
             return alert('password must be at list 6 character')
@@ -36,13 +37,13 @@ const Register = () => {
             <div className='w-full lg:w-[500px] mx-auto text-center mt-20  bg-blue-500 p-10 rounded-md'>
 
                 <form onSubmit={handelReg}>
-                    <input className='w-full' type="text" name="name" placeholder='Name' />
+                    <input className='w-full' type="text" name="name" placeholder='Name' required />
                     <br /> <br />
-                    <input className='w-full' type="email" name="email" placeholder='Email' />
+                    <input className='w-full' type="email" name="email" placeholder='Email' required/>
                     <br /> <br />
-                    <input className='w-full' type="password" name="password" placeholder='Password' />
+                    <input className='w-full' type="password" name="password" placeholder='Password'required />
                     <br /> <br />
-                    <input className='w-full' type="text" name="url" placeholder='Photo Url' />
+                    <input className='w-full' type="text" name="url" placeholder='Photo Url' required />
                     <br /> <br />
                     <button className='bg-green-400 p-2 rounded w-1/2 text-white font-bold' type='submit'>Register</button>
                     <div className="">

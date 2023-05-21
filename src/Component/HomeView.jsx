@@ -71,6 +71,7 @@ const HomeView = () => {
 
             {/* ===========================Subcategory================================ */}
             <div className="text-center mt-20 font-bold">
+                <h1 className='mb-10 border-b mx-auto text-fuchsia-950 w-[200px]'>Shopping with your Age</h1>
                 <Tabs>
                     <TabList>
                         <Tab onClick={() => handel3t04(4)}>3-4 years children</Tab>
@@ -81,7 +82,7 @@ const HomeView = () => {
 
                     <TabPanel >
                         {
-                            category.map(toy => <div className='border w-[300px] mx-auto mb-3 '>
+                            category.map(toy => <div key={toy._id} className='border w-[300px] mx-auto mb-3 '>
                                 <img className='w-[300px]' src={toy.url} alt="" />
                                 <p className='text-gray-500'>{toy.toyName}</p>
                                 <p>${toy.price}</p>
@@ -92,7 +93,7 @@ const HomeView = () => {
                     </TabPanel>
                     <TabPanel>
                         {
-                            category.map(toy => <div className='border w-[300px] mx-auto mb-3 '>
+                            category.map(toy => <div key={toy._id} className='border w-[300px] mx-auto mb-3 '>
                                 <img className='w-[300px]' src={toy.url} alt="" />
                                 <p className='text-gray-500'>{toy.toyName}</p>
                                 <p>${toy.price}</p>
@@ -104,7 +105,7 @@ const HomeView = () => {
                     </TabPanel>
                     <TabPanel>
                         {
-                            category.map(toy => <div className='border w-[300px] mx-auto mb-3 '>
+                            category.map(toy => <div key={toy._id} className='border w-[300px] mx-auto mb-3 '>
                                 <img className='w-[300px]' src={toy.url} alt="" />
                                 <p className='text-gray-500'>{toy.toyName}</p>
                                 <p>${toy.price}</p>
