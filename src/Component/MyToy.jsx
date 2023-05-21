@@ -53,6 +53,7 @@ const MyToy = () => {
     }
     return (
         <div>
+            <p className='mb-3 underline text-cyan-700 font-bold'>Sort by price</p>
             <select onChange={sortPrice} name="" id="">
                 <option value=''></option>
                 <option value='1'>low-price</option>

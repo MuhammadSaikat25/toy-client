@@ -71,12 +71,12 @@ const HomeView = () => {
 
             {/* ===========================Subcategory================================ */}
             <div className="text-center mt-20 font-bold">
-                <h1 className='mb-10 border-b mx-auto text-fuchsia-950 w-[200px]'>Shopping with your Age</h1>
+                <h1 className='mb-10 border-b mx-auto text-fuchsia-950 w-[200px]'>Sub-category</h1>
                 <Tabs>
                     <TabList>
-                        <Tab onClick={() => handel3t04(4)}>3-4 years children</Tab>
-                        <Tab onClick={() => handel3t04(7)}>5-7 years children</Tab>
-                        <Tab onClick={() => handel3t04(9)}>8-10+ years children</Tab>
+                        <Tab onClick={() => handel3t04('puzzle')}>Puzzle</Tab>
+                        <Tab onClick={() => handel3t04('abacus')}>Abacus</Tab>
+                        <Tab onClick={() => handel3t04('counting')}>Counting</Tab>
 
                     </TabList>
 

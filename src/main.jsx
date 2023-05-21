@@ -23,6 +23,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Home></Home>,
     children:[
+      // errorElement:<ErrorPage></ErrorPage>,
       {
         path:'/',
         element:<HomeView></HomeView>
@@ -57,16 +58,20 @@ const router = createBrowserRouter([
         element:<Update></Update>,
         loader:({params})=>fetch(`https://toy-hub-brown.vercel.app/getById/${params.id}`)
       },
-      {
-        path:'*',
-        element:<ErrorPage></ErrorPage>
-      },
+      // {
+      //   path:'*',
+      //   element:<ErrorPage></ErrorPage>
+      // },
       {
         path:'blog',
         element:<Blog></Blog>
       }
     ]
   },
+  {
+    path:'*',
+     element:<ErrorPage></ErrorPage>
+  }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

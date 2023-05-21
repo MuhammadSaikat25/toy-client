@@ -41,7 +41,7 @@ const AllToy = () => {
                             <td><p>{toy.name}</p></td>
                             <td><p>${toy.price}</p></td>
                             <td>{toy.toyName}</td>
-                            <td><p> {toy.age} years lod</p></td>
+                            <td><p> {toy.age}</p></td>
                             <td> <p>{toy.details}</p></td>
                             <td><Link to={`/subDetails/${toy._id}`}><button className='bg-sky-700 w-full rounded text-white font-bold'>viewDetail</button></Link></td>
                         </tr>
