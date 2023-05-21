@@ -10,6 +10,7 @@ const AllToyGrid = ({ toy }) => {
                 <p>price: ${toy.price}</p>
                 <p>Name:{toy.toyName}</p>
                 <p>Available Quantity:{toy.Available}</p>
+                <p>Sub-category: {toy.age} years lod</p>
                 <p>Description:{toy.details}</p>
                 <Link to={`/subDetails/${toy._id}`}><button className='bg-sky-700 w-full rounded text-white font-bold'>viewDetail</button></Link>
             </div>

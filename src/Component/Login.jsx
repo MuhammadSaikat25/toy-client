@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
+import useTitle from '../useTitle';
 
 const Login = () => {
     const {logIn,google}=useContext(AuthContext)
     const [error,setError]=useState('')
+    useTitle('login')
     console.log(error)
     const handelLog = e => {
         e.preventDefault()

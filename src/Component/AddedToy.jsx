@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { AuthContext } from "./AuthProvider";
+import useTitle from "../useTitle";
 
 const AddedToy = () => {
     const {user}=useContext(AuthContext)
-
+    useTitle('Add-toy')
     const addToy=(e)=>{
         e.preventDefault()
        const name=e.target.name.value 

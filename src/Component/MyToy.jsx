@@ -2,15 +2,27 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from './AuthProvider';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useTitle from '../useTitle';
 
 const MyToy = () => {
     const { user } = useContext(AuthContext)
     const [myToy, setMyToy] = useState([])
+    useTitle('my-toy')
     useEffect(() => {
         fetch(`https://toy-hub-brown.vercel.app/myToy?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setMyToy(data))
     }, [user])
+
+   const sortPrice=(e)=>{
+        const value=e.target.value
+       
+        fetch(`https://toy-hub-brown.vercel.app/getSort/${value}`)
+            .then(res=>res.json())
+            .then(data=>setMyToy(data))
+
+        console.log(e.target.value)
+   }
 
     const handelDelete = (id) => {
         Swal.fire({
@@ -41,6 +53,12 @@ const MyToy = () => {
     }
     return (
         <div>
+            <select onChange={sortPrice} name="" id="">
+                <option value=''></option>
+                <option value='1'>low-price</option>
+                <option value="2">High-price</option>
+            </select>
+
             <div className="overflow-x-auto ">
                 {
                     user ? <table className="table w-full">
@@ -54,6 +72,7 @@ const MyToy = () => {
                                 <th>Detail description</th>
                                 <th>Delete</th>
                                 <th>Update</th>
+                                <th>Sort</th>
                             </tr>
                         </thead>
                         {
@@ -62,7 +81,7 @@ const MyToy = () => {
                                     <th>{i + 1}</th>
                                     <th><img className='w-[50px] rounded' src={toy.url} alt="" /></th>
                                     <td>${toy.price}</td>
-                                    <td>{toy.quantity}</td>
+                                    <td>{toy.Available}</td>
                                     <td>{toy.details}</td>
                                     <td><button className='bg-emerald-500 text-white p-1 rounded font-bold' onClick={() => handelDelete(toy._id)}>Delete</button></td>
                                     <td><Link to={`/update/${toy._id}`}><button className='bg-sky-800 text-white p-1 rounded font-bold'>Update</button></Link></td>

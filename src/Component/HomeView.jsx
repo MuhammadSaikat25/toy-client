@@ -15,10 +15,11 @@ import { AuthContext } from './AuthProvider';
 import Footer from './Footer';
 import "aos/dist/aos.css";
 import AOS from "aos";
+import useTitle from '../useTitle';
 
 const HomeView = () => {
     const { user} = useContext(AuthContext)
-
+    useTitle('Home')
  
     const [category, setCategory] = useState([])
     const handel3t04 = (ageRange) => {

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import AllToyGrid from './AllToyGrid';
+import useTitle from '../useTitle';
 
 const AllToy = () => {
     const [allToy, setAllToy] = useState([])
     const [search, setSearch] = useState('')
+    useTitle('all-toy')
     useEffect(() => {
         fetch(`https://toy-hub-brown.vercel.app/allToy`)
             .then(res => res.json())

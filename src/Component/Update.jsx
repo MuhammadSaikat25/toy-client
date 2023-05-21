@@ -1,11 +1,12 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useTitle from '../useTitle';
 
 const Update = () => {
     const data = useLoaderData()
-    console.log(data)
-
+    // console.log(data)
+    useTitle('update')
     const handelUp = (e) => {
         e.preventDefault()
         const price = e.target.price.value

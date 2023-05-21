@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       {
         path:'subDetails/:id',
         element:<PrivetRout><SubView></SubView></PrivetRout>,
-        loader:({params})=>fetch(`https://toy-hub-brown.vercel.app/${params.id}`)
+        loader:({params})=>fetch(`https://toy-hub-brown.vercel.app/getById/${params.id}`)
       },
       {
         path:'update/:id',

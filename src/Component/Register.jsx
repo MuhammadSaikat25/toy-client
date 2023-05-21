@@ -2,23 +2,21 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
+import useTitle from '../useTitle';
 
 const Register = () => {
 
     const { createUser ,upDateUser} = useContext(AuthContext)
     const [error, setERror] = useState('')
-
+    useTitle('register')
     const handelReg = e => {
         e.preventDefault()
         const name = e.target.name.value
         const email = e.target.email.value
         const password = e.target.password.value
-        const conPass = e.target.conPass.value
         const url = e.target.url.value
-        if (password !== conPass) {
-            return alert('wong')
-        }
-        if(password.length<6){
+       
+        if(!password.length>6){
             return alert('password must be at list 6 character')
         }
         createUser(email, password)
@@ -35,7 +33,7 @@ const Register = () => {
     }
     return (
         <div>
-            <div className='w-[500px] mx-auto text-center mt-20  bg-blue-500 p-10 rounded-md'>
+            <div className='w-full lg:w-[500px] mx-auto text-center mt-20  bg-blue-500 p-10 rounded-md'>
 
                 <form onSubmit={handelReg}>
                     <input className='w-full' type="text" name="name" placeholder='Name' />
@@ -43,8 +41,6 @@ const Register = () => {
                     <input className='w-full' type="email" name="email" placeholder='Email' />
                     <br /> <br />
                     <input className='w-full' type="password" name="password" placeholder='Password' />
-                    <br /> <br />
-                    <input className='w-full' type="password" name="conPass" placeholder='Conform Password' />
                     <br /> <br />
                     <input className='w-full' type="text" name="url" placeholder='Photo Url' />
                     <br /> <br />
