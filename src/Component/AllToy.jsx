@@ -17,13 +17,8 @@ const AllToy = () => {
     return (
         <div>
 
-            {/* <input className='border w-1/2  mx-auto rounded mb-10'placeholder='Search by lowerCase' type="text" onChange={(e) => setSearch(e.target.value)} />
-            <div className="grid lg:grid-cols-3 gap-10">
-                {
-                    allToy.filter(a => a.toyName.toLowerCase().includes(search)).map(toy => <AllToyGrid toy={toy} key={toy._id}></AllToyGrid>)
-                }
-            </div> */}
 
+            <input className='border w-1/2  mx-auto rounded mb-10' placeholder='Search by lowerCase' type="text" onChange={(e) => setSearch(e.target.value)} />
             <table className="table w-full">
 
                 <thead>
@@ -39,7 +34,7 @@ const AllToy = () => {
                     </tr>
                 </thead>
                 {
-                    allToy.map((toy, i) => <tbody key={toy._id}>
+                    allToy.filter(a => a.toyName.toLowerCase().includes(search)).map((toy, i) => <tbody key={toy._id}>
                         <tr>
                             <th>{i + 1}</th>
                             <th><img className='w-[100px] rounded' src={toy.url} alt="" /></th>
